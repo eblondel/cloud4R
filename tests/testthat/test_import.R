@@ -13,7 +13,12 @@ test_that("atom4R works",{
 	expect_is(clazz, "R6ClassGenerator")
 })
 
-test_that("zen4R works", {
+test_that("zen4R works",{
 	versions <- zen4R::get_versions("10.5281/zenodo.6109137")
 	expect_is(versions, "data.frame")
+})
+
+test_that("ocs4R works",{
+  OCS <- ocs4R::ocsManager
+  expect_is(OCS, "R6ClassGenerator")
 })
