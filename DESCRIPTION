@@ -7,6 +7,9 @@ Authors@R: c(
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Depends: R (>= 3.3), methods
 Imports: R6, jsonlite, XML, httr, keyring, atom4R, zen4R, ocs4R
+Remotes:
+  eblondel/atom4R,
+  eblondel/zen4R
 Suggests: testthat
 Description: Provides tools to harmonize the (meta)data manageement on cloud repositories, using standard formats and protocols.
 License: MIT + file LICENSE
