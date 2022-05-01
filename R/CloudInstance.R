@@ -1,15 +1,15 @@
-#' CloudInstance
+#' CloudSystemInstance
 #' @docType class
 #' @export
 #' @keywords cloud system
-#' @return Object of \code{\link{R6Class}} for modelling an CloudInstance
+#' @return Object of \code{\link{R6Class}} for modelling an CloudSystemInstance
 #' @format \code{\link{R6Class}} object.
 #'
 #' @note Main user class to be used with \pkg{cloud4R}
 #'
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-CloudInstance <-  R6Class("CloudInstance",
+CloudSystemInstance <-  R6Class("CloudSystemInstance",
   private = list(),
   public = list(
 
@@ -28,7 +28,12 @@ CloudInstance <-  R6Class("CloudInstance",
         stop(sprintf("No cloud system supported with id '%s'", id))
       }
       self$id <- id
-      instance <- try(system$handler(...))
+      instance <- NULL
+      if(is(system$handler, "function")){
+        instance <- try(system$handler(...))
+      }else if(is(system$handler, "R6ClassGenerator")){
+        instance <- try(system$handler$new(...))
+      }
       if(is(instance, "try-error")){
         stop(sprintf("Error during initialization of cloud instance '%s'", id))
       }

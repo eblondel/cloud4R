@@ -29,7 +29,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{systems}}{one or more cloud systems}
+\item{\code{system_instances}}{one or more cloud systems}
 }
 \if{html}{\out{</div>}}
 }
@@ -37,6 +37,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{CloudManager$new()}}
+\item \href{#method-getSystemInstances}{\code{CloudManager$getSystemInstances()}}
 \item \href{#method-clone}{\code{CloudManager$clone()}}
 }
 }
@@ -58,17 +59,30 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \subsection{Method \code{new()}}{
 Initialize the cloud manager
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CloudManager$new(systems, logger = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{CloudManager$new(..., logger = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{systems}}{one or more systems}
+\item{\code{...}}{one or more system instances, objects of class \link{CloudSystemInstance}}
 
 \item{\code{logger}}{logger}
 }
 \if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getSystemInstances"></a>}}
+\if{latex}{\out{\hypertarget{method-getSystemInstances}{}}}
+\subsection{Method \code{getSystemInstances()}}{
+Get system instances
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CloudManager$getSystemInstances()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+a list of objects of class \link{CloudSystemInstance}
 }
 }
 \if{html}{\out{<hr>}}

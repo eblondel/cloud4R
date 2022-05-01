@@ -14,15 +14,21 @@ CloudManager <-  R6Class("CloudManager",
   private = list(),
   public = list(
 
-    #'@field systems one or more cloud systems
-    systems = list(),
+    #'@field system_instances one or more cloud systems
+    system_instances = list(),
 
     #'@description Initialize the cloud manager
-    #'@param systems one or more systems
+    #'@param ... one or more system instances, objects of class \link{CloudSystemInstance}
     #'@param logger logger
-    initialize = function(systems, logger = NULL){
+    initialize = function(..., logger = NULL){
       super$initialize(logger = logger)
-      self$systems <- systems
+      self$system_instances <- unlist(...)
+    },
+
+    #'@description Get system instances
+    #'@return a list of objects of class \link{CloudSystemInstance}
+    getSystemInstances = function(){
+      return(self$system_instances)
     }
 
   )
