@@ -46,9 +46,10 @@ CloudSystem <-  R6Class("CloudSystem",
 #' @aliases list_cloud_systems
 #' @title list_cloud_systems
 #' @description \code{list_cloud_systems} lists the available cloud systems currently managed in \pkg{cloud4R}
+#' @param pretty prettify the output as tibble
 #' @return the list of supported cloud systems
 #' @export
-list_cloud_systems <- function(){
+list_cloud_systems <- function(pretty = FALSE){
   systems <- list(
     CloudSystem$new(id = "sword", handler = atom4R::SwordClient),
     CloudSystem$new(id = "sword-dataverse", handler = atom4R::SwordDataverseClient),
@@ -57,6 +58,10 @@ list_cloud_systems <- function(){
     CloudSystem$new(id = "owncloud", handler = ocs4R::ocsManager),
     CloudSystem$new(id = "nextcloud", handler = ocs4R::ocsManager),
     CloudSystem$new(id = "d4science", handler = d4storagehub4R::StoragehubManager)
+  )
+  if(pretty) systems <- tibble::tibble(
+    id = sapply(systems, function(x){x$getId()}),
+    handler = sapply(systems, function(x){x$getHandler()})
   )
   return(systems)
 }

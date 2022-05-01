@@ -6,7 +6,7 @@ Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Depends: R (>= 3.3), methods
-Imports: R6, jsonlite, XML, httr, keyring, atom4R, zen4R, ocs4R, d4storagehub4R
+Imports: R6, jsonlite, tibble, XML, httr, keyring, atom4R, zen4R, ocs4R, d4storagehub4R
 Suggests: testthat
 Description: Provides tools to harmonize the (meta)data manageement on cloud repositories, using standard formats and protocols.
 License: MIT + file LICENSE

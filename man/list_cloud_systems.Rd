@@ -4,7 +4,10 @@
 \alias{list_cloud_systems}
 \title{list_cloud_systems}
 \usage{
-list_cloud_systems()
+list_cloud_systems(pretty = FALSE)
+}
+\arguments{
+\item{pretty}{prettify the output as tibble}
 }
 \value{
 the list of supported cloud systems
