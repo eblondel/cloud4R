@@ -6,6 +6,9 @@
 \usage{
 get_cloud_system(id)
 }
+\arguments{
+\item{id}{system id}
+}
 \value{
 an object of class \link{CloudSystem}, \code{NULL} if not system identified
 }

@@ -70,7 +70,7 @@ list_cloud_systems <- function(pretty = FALSE){
 #'@aliases get_cloud_system
 #'@title get_cloud_system
 #'@description Get a cloud system given an ID
-#'@param id
+#'@param id system id
 #'@return an object of class \link{CloudSystem}, \code{NULL} if not system identified
 #'@export
 get_cloud_system <- function(id){
