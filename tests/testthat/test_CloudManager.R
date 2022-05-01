@@ -17,4 +17,6 @@ test_that("a cloud manager can be instantiated, with cloud instances",{
     logger = "INFO"
   )
   expect_is(cloud, "CloudManager")
+  expect_is(cloud$getSystemInstances(), "list")
+  expect_true(all(sapply(cloud$getSystemInstances(), function(x){is(x, "CloudSystemInstance")})))
 })
