@@ -65,3 +65,20 @@ list_cloud_systems <- function(pretty = FALSE){
   )
   return(systems)
 }
+
+#'@name get_cloud_system
+#'@aliases get_cloud_system
+#'@title get_cloud_system
+#'@description Get a cloud system given an ID
+#'@param id
+#'@return an object of class \link{CloudSystem}, \code{NULL} if not system identified
+#'@export
+get_cloud_system <- function(id){
+  system <- NULL
+  systems <- list_cloud_systems()
+  systems <- systems[sapply(systems, function(system){system$getId() == id})]
+  if(length(systems)>0){
+    system <- systems[[1]]
+  }
+  return(system)
+}
