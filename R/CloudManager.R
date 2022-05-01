@@ -22,7 +22,7 @@ CloudManager <-  R6Class("CloudManager",
     #'@param logger logger
     initialize = function(..., logger = NULL){
       super$initialize(logger = logger)
-      self$system_instances <- unlist(...)
+      self$system_instances <- list(...)
     },
 
     #'@description Get system instances

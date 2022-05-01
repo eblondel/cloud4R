@@ -15,9 +15,6 @@ CloudSystem
 
 CloudSystem
 }
-\note{
-Main user class to be used with \pkg{cloud4R}
-}
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }

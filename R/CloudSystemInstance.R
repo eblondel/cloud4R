@@ -5,8 +5,6 @@
 #' @return Object of \code{\link{R6Class}} for modelling an CloudSystemInstance
 #' @format \code{\link{R6Class}} object.
 #'
-#' @note Main user class to be used with \pkg{cloud4R}
-#'
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 CloudSystemInstance <-  R6Class("CloudSystemInstance",
@@ -16,18 +14,23 @@ CloudSystemInstance <-  R6Class("CloudSystemInstance",
     #'@field id system identifier
     id = NULL,
 
+    #'@field refid system reference identifier
+    refid = NULL,
+
     #'@field instance system instance
     instance = NULL,
 
-    #'@description Initialize a cloud system
-    #'@param id cloud system identifier
+    #'@description Initialize a cloud system instance
+    #'@param id instance identifier
+    #'@param refid cloud system reference identifier
     #'@param ... arguments to set for the system instance
-    initialize = function(id, ...){
-      system <- get_cloud_system(id = id)
-      if(is.null(system)){
-        stop(sprintf("No cloud system supported with id '%s'", id))
-      }
+    initialize = function(id, refid, ...){
       self$id <- id
+      system <- get_cloud_system(id = refid)
+      if(is.null(system)){
+        stop(sprintf("No cloud system supported with refid '%s'", refid))
+      }
+      self$refid <- refid
       instance <- NULL
       if(is(system$handler, "function")){
         instance <- try(system$handler(...))

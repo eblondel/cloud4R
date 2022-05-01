@@ -5,8 +5,6 @@
 #' @return Object of \code{\link{R6Class}} for modelling an CloudSystem
 #' @format \code{\link{R6Class}} object.
 #'
-#' @note Main user class to be used with \pkg{cloud4R}
-#'
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 CloudSystem <-  R6Class("CloudSystem",
@@ -55,8 +53,8 @@ list_cloud_systems <- function(pretty = FALSE){
     CloudSystem$new(id = "sword-dataverse", handler = atom4R::SwordDataverseClient),
     CloudSystem$new(id = "zenodo", handler = zen4R::ZenodoManager),
     CloudSystem$new(id = "ocs", handler = ocs4R::ocsManager),
-    CloudSystem$new(id = "owncloud", handler = ocs4R::ocsManager),
-    CloudSystem$new(id = "nextcloud", handler = ocs4R::ocsManager),
+    CloudSystem$new(id = "ocs-owncloud", handler = ocs4R::ocsManager),
+    CloudSystem$new(id = "ocs-nextcloud", handler = ocs4R::ocsManager),
     CloudSystem$new(id = "d4science", handler = d4storagehub4R::StoragehubManager)
   )
   if(pretty) systems <- tibble::tibble(
